@@ -8,8 +8,6 @@ class Solution:
                 self.occurences[num] += 1
             else:
                 self.occurences[num] = 1
-        print(self.occurences)
-        print(self.occurences.values())
         return (len(self.occurences.values()) == len(set(self.occurences.values())))
 
 

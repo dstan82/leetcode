@@ -6,14 +6,10 @@ class Solution:
         second_counter = 0
         vowels = set('aeiou')
         for i in range(len(s)//2):
-            print(f'iteration{i}')
             if s[i].lower() in vowels:
                 first_counter += 1
-                
             if s[len(s)//2+i].lower() in vowels:
                 second_counter += 1
-                print(s[i].lower())
-                print (f' counter: {first_counter}')
         return first_counter == second_counter
 obj = Solution()
 print(obj.halvesAreAlike('Baooak'))
