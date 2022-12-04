@@ -3,32 +3,31 @@ import time
 
 class Solution:
     def minimumAverageDifference(self, nums: list[int]) -> int:
-        diff = {}
         index = 0
         sum1 = 0
         total_length = len(nums)
         total_sum = sum(nums)
+        max_dif = max(nums)
+'''
         for num in nums:
             sum1 += num
             average1 = floor(sum1/(index+1))
             sum2 = total_sum - sum1
             index += 1
             average2 = floor(sum2 / (total_length-index) if total_length-index != 0 else 0)
-            diff[index-1] = abs(average2-average1)
-        return min(diff, key=diff.get)
             
+            if max_dif > abs(average2-average1):
+                max_dif = abs(average2-average1)
+                result = index - 1
 
-            
-
+        return result
 '''
         for i in range(len(nums)):
             p1 = floor(sum(nums[0:i+1])/p1_length)
             p2 = floor(sum(nums[i+1:])/(p2_length-p1_length) if p2_length-p1_length != 0 else 0)
             diff[i] = abs(p2-p1)
             p1_length += 1
-
         return (min(diff, key=diff.get))
-'''
 
 obj = Solution()
 list0 = [2,5,3,9,5,3]
