@@ -1,6 +1,8 @@
-a = [1,2,3]
-print(len(a))
+a = 1
+b = 2
 
-for i in range(len(a)):
-    print(i)
-print(5//2    )
+b = a
+
+print(a)
+print(b)
+

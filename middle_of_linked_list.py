@@ -4,81 +4,71 @@ class node:
         self.next = None
 
 class linked_list:
-    def __init__(self,mandatory_first_element) -> None:
-        self.head = node(mandatory_first_element)
+    def __init__(self) -> None:
+        self.head = node()
         
     def append(self, data):
         new_node = node(data)
-        cur = self.head
-        while cur.next != None:
-            cur = cur.next
-        cur.next = new_node
+        current_node = self.head
+        while current_node.next != None:
+            current_node = current_node.next
+        current_node.next = new_node
 
     def length(self):
-        cur = self.head
+        current_node = self.head
         total = 0
-        while cur:
+        while current_node.next != None:
             total += 1
-            cur = cur.next
+            current_node = current_node.next
         return total
     def display(self):
         elems = []
-        cur_node = self.head
-        while cur_node:
-            elems.append(cur_node.data)
-            cur_node = cur_node.next
+        current_node = self.head
+        while current_node.next != None:
+            current_node = current_node.next
+            elems.append(current_node.data)
         print(elems)
     def get(self,index):
         if index >= self.length():
             print('Error GET index out of range')
             return None
         cur_idx = 0
-        cur_node = self.head
+        current_node = self.head.next
         while True:
             if cur_idx == index: 
-                return cur_node.data
+                return current_node.data
             cur_idx += 1
-            cur_node = cur_node.next
+            current_node = current_node.next
         
     def pop(self, index):
         if index >= self.length():
             print('Error POP index out of range')
             return None
         cur_idx = 0
-        cur_node = self.head
+        current_node = self.head
         while True:
+            last_node = current_node
+            current_node = current_node.next
             if cur_idx == index:
-                if cur_idx == 0:
-                    self.head = self.head.next
-                    print('head poped, next elem is now head')
-                    return None
-                last_node.next = cur_node.next
-                print('elem poped')
+                last_node.next = current_node.next
                 return None
-            last_node = cur_node
-            cur_node = cur_node.next
             cur_idx += 1
-                
-        
 
 
-my_list = linked_list(0)
-print(my_list.head.data)
+my_list = linked_list()
 my_list.append(1)
-next = my_list.head.next
-print(next.data)
 my_list.append(2)
 my_list.append(3)
 my_list.append(4)
 my_list.append(5)
 my_list.append(6)
-print(my_list.length())
 my_list.display()
-print(my_list.get(0))
+print(f'list length: {my_list.length()}')
+print(my_list.get(6))
 my_list.pop(0)
 my_list.pop(0)
 my_list.pop(0)
-my_list.display()
+
 print(my_list.head.data)
 
 
