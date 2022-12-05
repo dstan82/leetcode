@@ -3,3 +3,4 @@ print(len(a))
 
 for i in range(len(a)):
     print(i)
+print(5//2    )
