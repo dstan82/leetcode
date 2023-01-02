@@ -1,8 +1,7 @@
-a = 1
-b = 2
+import numpy as np
+import random
+import string 
 
-b = a
-
-print(a)
-print(b)
-
+a = np.random.choice(['a','b','c'], size=4)
+b= string.ascii_uppercase
+print(list(b))

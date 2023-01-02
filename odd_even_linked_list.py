@@ -56,19 +56,16 @@ class linked_list:
 
 
 my_list = linked_list()
-
+'''
 my_list.append(0)
+'''
 my_list.append(1)
 my_list.append(2)
-'''
+my_list.append(3)
 my_list.append(4)
 my_list.append(5)
-my_list.append(6)
-my_list.append(7)
-my_list.append(8)
-'''
 
-my_list.display()
+
 
 # Definition for singly-linked list.
 # class ListNode:
@@ -78,26 +75,27 @@ my_list.display()
 class Solution:
     def oddEvenList(self, head):
         current_node = head.head.next
-        list_length = 1
+        list_length = 2  #starting from 2 because we don't iterate and count the last item
         if current_node == None or current_node.next == None or current_node.next.next == None:
             return head
         else:
-            keep_even_head = current_node.next
+            second_half_head = current_node.next
 
         while current_node.next.next != None:
             list_length += 1
             next_node = current_node.next
             current_node.next = next_node.next
             current_node = next_node
-
+            print(f'current node {current_node.data}')
+        print(current_node.data)
         if list_length %2 == 0:
-            current_node.next.next = keep_even_head
-            current_node.next = None
+            current_node.next = second_half_head
+            print(f'even {list_length}')
         else:
-            print(current_node.next.data)
+            current_node.next.next = second_half_head
             current_node.next = None
             print(current_node.data)
-            current_node.next = keep_even_head
+            print(f'odd {list_length}')
             
         return head
 
